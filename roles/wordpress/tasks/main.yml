@@ -23,9 +23,6 @@
 - name: Create WordPress database user
   mysql_user: name={{ wp_db_user }} password={{ wp_db_password }} priv={{ wp_db_name }}.*:ALL host='localhost' state=present
 
-- name: Copy WordPress config file
-  template: src=wp-config.php dest=/srv/wordpress/
-
 - name: Change ownership of WordPress installation
   file: path=/srv/wordpress/ owner=wordpress group=wordpress state=directory recurse=yes
 
